@@ -31,7 +31,7 @@ To run the project locally, follow these steps:
 
 Clone the repository to your local machine using Git:
 
-git clone https://github.com/your-username/tasks-board-test.git
+git clone https://github.com/StsKushnir/tasks-board-test.git
 
 ### Step 2: Install Dependencies
 Navigate to the project folder and install all dependencies using npm:
