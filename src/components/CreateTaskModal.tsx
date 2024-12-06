@@ -1,6 +1,7 @@
-
 interface TaskFormProps {
   taskForm: {
+    day: string;
+    userId: number;
     title: string;
     description: string;
     price: string;
@@ -8,6 +9,8 @@ interface TaskFormProps {
   };
   
   setTaskForm: React.Dispatch<React.SetStateAction<{
+    day: string;
+    userId: number;
     title: string;
     description: string;
     price: string;

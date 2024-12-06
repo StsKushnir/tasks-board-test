@@ -23,25 +23,19 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
     if (isOpen) {
       const storedTasks = JSON.parse(localStorage.getItem("tasks") || "{}");
       if (storedTasks) {
-        console.log("storedTasks:", storedTasks);
-        console.log("task:", task);
+        const dayTask = storedTasks[task.id] || null;
 
-        const dayTasks = storedTasks[task.day] || [];
-        console.log("task.day", task.day);
-
-        const taskIndex = dayTasks.findIndex((t: Task) => t.id === task.id);
-
-        if (taskIndex !== -1) {
-          dayTasks[taskIndex] = { ...dayTasks[taskIndex], ...form };
-
-          storedTasks[task.day] = dayTasks;
+        if (dayTask) {
+          const newDayTask = { ...dayTask, ...form };
+          storedTasks[task.id] = newDayTask;
           localStorage.setItem("tasks", JSON.stringify(storedTasks));
         } else {
           console.error("Task not found in the selected day.");
         }
       }
     }
-  }, [form, isOpen]);
+  }, [form, isOpen, task.day, task.id]); 
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -60,14 +54,16 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white rounded-lg p-6 w-96">
-        <h2 className="text-lg font-bold mb-4">Edit Task</h2>
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+    >
+      <div className="bg-white p-6 rounded-md w-96">
+        <h2 className="text-xl font-semibold">Edit Task</h2>
         <form>
           <div className="mb-4">
             <label
               htmlFor="title"
-              className="block text-sm font-medium text-gray-700"
+              className="block"
             >
               Title
             </label>
@@ -77,7 +73,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
               id="title"
               value={form.title}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="w-full p-2 border"
             />
           </div>
           <div className="mb-4">
@@ -93,7 +89,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
               id="description"
               value={form.description}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="w-full p-2 border"
             />
           </div>
           <div className="mb-4">
@@ -109,7 +105,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
               id="price"
               value={form.price}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="w-full p-2 border"
             />
           </div>
           <div className="mb-4">
@@ -125,7 +121,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
               id="deadline"
               value={form.deadline}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="w-full p-2 border"
             />
           </div>
           <div className="mb-4">
@@ -140,7 +136,7 @@ const EditTaskModal: React.FC<EditTaskModalProps> = ({
               id="status"
               value={form.status}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="w-full p-2 border"
             >
               <option value="pending">Pending</option>
               <option value="completed">Completed</option>

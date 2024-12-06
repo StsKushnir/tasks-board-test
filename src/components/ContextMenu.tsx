@@ -38,16 +38,16 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>(
           left: `${x}px`,
         }}
       >
-        <ul className="bg-white border shadow-md w-48">
+        <ul className="bg-white border shadow-md w-28">
           <li
             onClick={() => taskId && onAction("edit")}
-            className="p-2 hover:bg-gray-100 cursor-pointer"
+            className="p-2 hover:bg-gray-100 cursor-pointer text-[#4169E1] "
           >
             Edit
           </li>
           <li
             onClick={() => taskId && onAction("delete")}
-            className="p-2 hover:bg-gray-100 cursor-pointer"
+            className="p-2 hover:bg-gray-100 cursor-pointe text-[#FF0000] "
           >
             Delete
           </li>

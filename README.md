@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tasks board
 
-## Getting Started
+This project is a simple web application for task planning and management, built using modern technologies to create an interactive interface. The core functionality includes the ability to drag and drop tasks between days and users, interact with a context menu, edit tasks, and store data locally.
 
-First, run the development server:
+## Technologies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **React**: Functional components and hooks for building the user interface.
+- **TypeScript**: Strict typing for better code safety and maintainability.
+- **TailwindCSS**: A utility-first CSS framework for fast styling without writing complex CSS rules.
+- **Next.js**: A framework for building server-rendered applications and SPAs (Single Page Applications) with support for routing and optimizations.
+- **HTML5 drag-and-drop API**: Implementation of task dragging functionality for task scheduling.
+- **Local Storage**: Storing data on the client side to persist the application state.
+- **Zustand**: A simple state management library for managing the global state of the application.
+- **App Router (Next.js)**: Routing for the application using Next.js App Router for easy navigation management.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Description
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This application allows users to plan tasks, drag them between days or users, and edit tasks via a context menu. All changes are stored in Local Storage, ensuring the state persists even after a page reload. The project is built using **Next.js** for structuring the application with the advantages of server-side rendering and fast routing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Core Features:
+- **Task Dragging**: Tasks can be dragged between days and users using the HTML5 drag-and-drop API.
+- **Context Menu**: Right-clicking on items opens a context menu to edit or delete tasks.
+- **Modal Windows**: Modal dialogs are used for editing tasks, enhancing the user interaction.
+- **Dynamic Data Updates**: Tasks are stored in Local Storage and dynamically updated when changes occur within the app.
 
-## Learn More
+## How to Run the Project
 
-To learn more about Next.js, take a look at the following resources:
+To run the project locally, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Step 1: Clone the Repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Clone the repository to your local machine using Git:
 
-## Deploy on Vercel
+git clone https://github.com/your-username/tasks-board-test.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Step 2: Install Dependencies
+Navigate to the project folder and install all dependencies using npm:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+cd task-planner
+npm install
+
+Step 3: Run the Development Server
+Start the development server:
+
+npm run dev 
+
+This will start the server at http://localhost:3000. Open this URL in your browser to see the project in action.
+
+

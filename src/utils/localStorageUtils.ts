@@ -5,6 +5,6 @@ export const loadTasksFromLocalStorage = () => {
   return storedTasks ? JSON.parse(storedTasks) : {};
 };
 
-export const saveTasksToLocalStorage = (tasks: Record<string, Task[]>) => {
+export const saveTasksToLocalStorage = (tasks: Record<string, Task>) => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
